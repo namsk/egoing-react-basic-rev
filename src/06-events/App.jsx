@@ -63,6 +63,11 @@ function Nav(props) {
   );
 }
 
+Nav.propTypes = {
+  topics: PropTypes.array,
+  onChangeMode: PropTypes.func,
+};
+
 function Article(props) {
   return (
     <article>
@@ -71,6 +76,11 @@ function Article(props) {
     </article>
   );
 }
+
+Article.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+};
 
 function App() {
   const topics = [
