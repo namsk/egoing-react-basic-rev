@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 // import './App.css';
 
+import PropTypes from "prop-types";
+
 // function Header(props) {
 function Header({ title, onChangeMode }) {
   //   console.log("props", props.title);
@@ -29,6 +31,11 @@ function Header({ title, onChangeMode }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  title: PropTypes.string,
+  onChangeMode: PropTypes.func,
+};
 
 function Nav(props) {
   const lis = [];
