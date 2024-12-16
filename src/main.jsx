@@ -8,7 +8,8 @@ import { createRoot } from "react-dom/client";
 // import App from "./07-state/App.jsx";
 // import App from "./08-create/App.jsx";
 // import App from "./09-update/App.jsx";
-import App from "./10-delete/App.jsx";
+// import App from "./10-delete/App.jsx";
+import App from "./11-final/App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
