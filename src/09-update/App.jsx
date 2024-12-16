@@ -1,6 +1,7 @@
 // import logo from "./logo.svg";
 // import "./App.css";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 function Header(props) {
   console.log("props", props.title);
@@ -20,6 +21,10 @@ function Header(props) {
     </header>
   );
 }
+Header.propTypes = {
+  title: PropTypes.string,
+  onChangeMode: PropTypes.func,
+};
 
 function Nav(props) {
   const lis = [];
@@ -46,6 +51,10 @@ function Nav(props) {
     </nav>
   );
 }
+Nav.propTypes = {
+  topics: PropTypes.array,
+  onChangeMode: PropTypes.func,
+};
 
 function Article(props) {
   return (
@@ -55,6 +64,10 @@ function Article(props) {
     </article>
   );
 }
+Article.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+};
 
 function Create(props) {
   return (
@@ -81,7 +94,9 @@ function Create(props) {
     </article>
   );
 }
-
+Create.propTypes = {
+  onCreate: PropTypes.func,
+};
 //  Update 컴포넌트 추가
 function Update(props) {
   const [title, setTitle] = useState(props.title);
@@ -124,6 +139,11 @@ function Update(props) {
     </article>
   );
 }
+Update.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+  onUpdate: PropTypes.func,
+};
 //  End: Upadate 컴포넌트 추가
 
 function App() {
