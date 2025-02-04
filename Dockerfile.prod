@@ -1,0 +1,31 @@
+# Stage 1: Build the React app
+FROM node:20 AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build # 프로덕션 빌드 생성
+
+# Stage 2: Serve the React app
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
+# Build the Docker image
+# docker build -t react-app-prod -f Dockerfile.prod .
+
+# Run the Docker container
+# docker run -it -p 80:80 --name react-app-prod react-app-prod
+
+# 실제 서빙할 때는
+# docker run -d -p 80:80 --name react-app-prod react-app-prod
+
+# 로그 보기
+# docker logs -f react-app-prod
